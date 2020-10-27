@@ -3,11 +3,11 @@ BUILD_OPTIONS =
 
 OS := darwin
 ARCH := amd64
-BINARY_NAME := "<project>"
+BINARY_NAME := "jwtdebug"
 FULL_BINARY_NAME := $(BINARY_NAME)-$(OS)-$(ARCH)
 
 PROJECT_USERNAME := kdisneur
-PROJECT_REPOSITORY := <project>
+PROJECT_REPOSITORY := jwtdebug
 
 GIT_BIN := git
 
@@ -28,11 +28,11 @@ compile:
 
 	GOOS=$(OS) GOARCH=$(ARCH) go build $(BUILD_OPTIONS) \
 		-ldflags \
-		"-X github.com/kdisneur/<project>/internal.versionNumber=$$(if [ "$(GIT_TAG)" = "" ]; then echo "unknown"; else echo "$(GIT_TAG)"; fi) \
-			 -X github.com/kdisneur/<project>/internal.gitBranch=$(GIT_BRANCH) \
-			 -X github.com/kdisneur/<project>/internal.gitCommit=$(GIT_COMMIT) \
-			 -X github.com/kdisneur/<project>/internal.gitState=$(GIT_STATE) \
-			 -X github.com/kdisneur/<project>/internal.buildDate=$(shell date -u +'%Y-%m-%dT%H:%M:%SZ')" \
+		"-X github.com/kdisneur/jwtdebug/internal.versionNumber=$$(if [ "$(GIT_TAG)" = "" ]; then echo "unknown"; else echo "$(GIT_TAG)"; fi) \
+			 -X github.com/kdisneur/jwtdebug/internal.gitBranch=$(GIT_BRANCH) \
+			 -X github.com/kdisneur/jwtdebug/internal.gitCommit=$(GIT_COMMIT) \
+			 -X github.com/kdisneur/jwtdebug/internal.gitState=$(GIT_STATE) \
+			 -X github.com/kdisneur/jwtdebug/internal.buildDate=$(shell date -u +'%Y-%m-%dT%H:%M:%SZ')" \
 		-o $(BUILD_FOLDER)/$(BINARY_NAME)
 
 	@tar czf $(BUILD_FOLDER)/$(FULL_BINARY_NAME).tgz -C $(BUILD_FOLDER) $(BINARY_NAME)

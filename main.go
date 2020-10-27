@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kdisneur/<project>/internal"
+	"github.com/kdisneur/jwtdebug/internal"
 )
 
 func main() {

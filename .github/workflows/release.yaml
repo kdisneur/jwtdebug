@@ -29,13 +29,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.get_release.outputs.upload_url }}
-          asset_path: ./dist/<project>-darwin-amd64.tgz
+          asset_path: ./dist/jwtdebug-darwin-amd64.tgz
           asset_name: b64-darwin-amd64-${{ github.ref }}.tgz
           asset_content_type: application/gzip
       - name: Bump Formula
         uses: mislav/bump-homebrew-formula-action@v1
         with:
-          formula-name: <project>
+          formula-name: jwtdebug
           homebrew-tap: kdisneur/homebrew-formulae
           base-branch: master
           download-url: ${{ steps.upload_release.outputs.browser_download_url }}
